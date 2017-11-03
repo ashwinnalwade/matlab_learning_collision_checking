@@ -43,6 +43,10 @@ set = 1;
 policy_set = {};
 switch set
     case 1
+        % LazySP
+        policy_set{length(policy_set)+1} = @() policyLazySP(path_edgeid_map, train_world_library_assignment, train_coll_check_results, G, 0.01, 0);
+        % LazySP + MaxProbReg
+        policy_set{length(policy_set)+1} = @() policyLazySP(path_edgeid_map, train_world_library_assignment, train_coll_check_results, G, 0.01, 1);
         % Random
         policy_set{length(policy_set)+1} = @() policyRandomEdge(path_edgeid_map, train_world_library_assignment, train_coll_check_results, 0.01, false, 0);
         % Random + MaxProbReg
