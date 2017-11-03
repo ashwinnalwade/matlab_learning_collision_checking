@@ -62,11 +62,7 @@ switch set
         % BISECT + MaxProbReg
         policy_set{length(policy_set)+1} = @() policyDRDBernoulli(path_edgeid_map, edge_check_cost, train_world_library_assignment, train_coll_check_results, 0.01, false, 1); 
     case 2
-        policy_set{length(policy_set)+1} = @() policyLazySP(path_edgeid_map, train_world_library_assignment, train_coll_check_results, G, 0.01, 0);
-        policy_set{length(policy_set)+1} = @() policyMaxTallyEdge(path_edgeid_map, train_world_library_assignment, train_coll_check_results, 0.01, false, 1);
-        policy_set{length(policy_set)+1} = @() policyMaxSetCover(path_edgeid_map, train_world_library_assignment, train_coll_check_results, 0.01, false, 1);
-        policy_set{length(policy_set)+1} = @() policyMaxMVOI(path_edgeid_map, train_world_library_assignment, train_coll_check_results, 0.01, false);
-        policy_set{length(policy_set)+1} = @() policyDRDBernoulli(path_edgeid_map, edge_check_cost, train_world_library_assignment, train_coll_check_results, 0.01, false, 1);
+        % DIRECT + BISECT
         load(strcat(set_dataset, 'saved_decision_trees/drd_decision_tree_data.mat'), 'decision_tree_data');
         policy_set{length(policy_set)+1} = @() policyDecisionTreeandBern(decision_tree_data, path_edgeid_map, edge_check_cost, 0.01, false, 0.2);
 end

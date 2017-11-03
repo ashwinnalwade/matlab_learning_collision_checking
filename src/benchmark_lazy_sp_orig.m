@@ -9,8 +9,8 @@ clear;
 close all;
 
 %% Load data
-dataset = strcat(getenv('collision_checking_dataset_folder'), '/dataset_herb_1/');
-set_dataset = strcat(dataset,'set_2/');
+set_dataset = strcat(getenv('collision_checking_dataset_folder'), '/dataset_2d_1/');
+
 
 G = load_graph( strcat(set_dataset,'graph.txt') );
 load(strcat(set_dataset, 'world_library_assignment.mat'), 'world_library_assignment');
